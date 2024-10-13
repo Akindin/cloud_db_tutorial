@@ -1,5 +1,5 @@
 ```sql
-create type measurment_unit as enum (
+create type measurement_unit as enum (
   'килограммы',
   'штуки',
   'литры',
