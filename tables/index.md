@@ -162,6 +162,18 @@ Description: Тип продуктов
 
    ![Table Editor после создания таблицы](images/table_editor/main_screen.png)
 
+
+
+![alt text](image-18.png)
+
+![alt text](image-19.png)
+
+![alt text](image-20.png)
+
+![alt text](image-21.png)
+
+![alt text](image-22.png)
+
 ---
 
 ## 2. SQL Editor
