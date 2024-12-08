@@ -75,13 +75,13 @@
    Если какое-нибудь поле вашей таблицы зависит от значений из другой таблицы, эту зависимость необходимо указать при помощи внешних ключей.
 
 
-   Добавление внешнего ключа будет рассмотрено на связи между таблицами **Product** и **ProductCost**. Для продолжения вам необходимо убедиться, что у вас созданы созданы обе таблицы:
+   Добавление внешнего ключа будет рассмотрено на связи между таблицами **`Product`** и **`ProductCost`**. Для продолжения вам необходимо убедиться, что у вас созданы созданы обе таблицы:
 
-   Таблица **Product**:
+   Таблица **`Product`**:
    ![Заполненные данные для создания таблицы Product, 1](images/table_editor/new_table_creation_1st_half.png)
    ![Заполненные данные для создания таблицы Product, 2](images/table_editor/new_table_creation_2nd_half.png)
 
-   Таблцица **ProductCost** (пока без заполненного внешнего ключа):
+   Таблцица `ProductCost` (пока без заполненного внешнего ключа):
    ![Заполненные данные для создания таблицы ProductCost, 1](image-36.png)
    ![Заполненные данные для создания таблицы ProductCost, 2](image-37.png)
 
@@ -89,7 +89,7 @@
 
    ![Установка внешнего ключа](images/table_editor/columns/add_foreign_key_relation-focused.png)
 
-   Далее открывается окно настройки внешнего ключа в таблице **ProductCost**. При нажатии на иконку с двумя диагональными стрелками, раскрывается ссылка на [документацию](https://www.postgresql.org/docs/current/tutorial-fk.html) по внешним ключам.
+   Далее открывается окно настройки внешнего ключа в таблице `ProductCost`. При нажатии на иконку с двумя диагональными стрелками, раскрывается ссылка на [документацию](https://www.postgresql.org/docs/current/tutorial-fk.html) по внешним ключам.
 
    ![product_cost_info_expand-focus](images/table_editor/foreign_keys/product_cost_info_expand-focus.jpg)
 
@@ -99,7 +99,7 @@
 
 ![alt text](image.png)
 
-Затем необходимо выбрать таблицу, на которую будут ссылаться выбранные столбцы. В нашем примере выбираем таблицу **Product**.
+Затем необходимо выбрать таблицу, на которую будут ссылаться выбранные столбцы. В нашем примере выбираем таблицу `Product`.
 
 ![alt text](image-1.png)
 ![alt text](image-2.png)
@@ -137,7 +137,7 @@
 
 ![alt text](image-10.png)
 
-Полностью заполненная форма создания внешнего ключа между таблицами Product и ProductCost представлена на скринах ниже:
+Полностью заполненная форма создания внешнего ключа между таблицами `Product` и `ProductCost` представлена на скринах ниже:
 
 ![foreign key product and product_cost product 1](image-15.png)
 ![foreign key product and product_cost product 2](image-16.png)
@@ -168,17 +168,21 @@ Description: Тип продуктов
 
    ![Сохранить таблицу](images/table_editor/new_table_creation_save-focus.png)
 
-Убедитесь, что у вас созданы все следующие таблицы. (Также, вы имеете возможность сделать это быстрее при помощи SQL Editor, который будет рассмотрен в следующем пункте).
+Убедитесь, что у вас созданы все остальные таблицы. (Также, вы имеете возможность сделать это быстрее при помощи SQL Editor, который будет рассмотрен в следующем пункте).
 
-Заполненная таблица **Storage**:
+Заполненная таблица **`Storage`**:
 
 ![alt text](image-18.png)
 
 ![alt text](image-19.png)
 
+Заполненная таблица **`Employee`**:
+
 ![alt text](image-20.png)
 
 ![alt text](image-21.png)
+
+Заполненная таблица **`Operation`**:
 
 ![alt text](image-22.png)
 
@@ -194,6 +198,8 @@ Description: Тип продуктов
 
 ![alt text](image-28.png)
 
+Заполненная таблица **`ProductOperation`**:
+
 ![alt text](image-29.png)
 
 ![alt text](image-30.png)
@@ -205,15 +211,8 @@ Description: Тип продуктов
 ![alt text](image-33.png)
 
 ![alt text](image-34.png)
-### Шаг 7: Просмотр и работа с новой таблицей
 
-После сохранения таблица будет доступна для работы в **Table Editor** и других разделах Supabase, таких как **SQL Editor** для выполнения запросов.
-
-   ![Table Editor после создания таблицы](image-35.png)
-
-
-
-![alt text](image-35.png)
+Заполненная таблица **`ProductCost`** (с заполненными внешними ключами):
 
 ![alt text](image-36.png)
 
@@ -225,11 +224,201 @@ Description: Тип продуктов
 
 ![alt text](image-40.png)
 
+### Шаг 7: Просмотр и работа с новой таблицей
+
+После сохранения таблицы будут доступна для работы в **Table Editor** и других разделах Supabase, таких как **SQL Editor** для выполнения запросов.
+
+![Table Editor после создания таблицы](image-35.png)
+
 ---
 
 ## 2. SQL Editor
 
+
+
+
+# Руководство по созданию таблиц в Supabase с помощью SQL Editor
+
 ### Шаг 1: Открытие SQL Editor
+
+Для того, чтобы воспользоваться редактором таблиц **SQL Editor**, необходимо кликнуть на кнопку с соответствующим названием.
+
+![SQL Editor Фокус](images\main_screen\sql_editor-focus.png)
+
+При переходе по указанной выше кнопке будет отображено главное окно редактора **SQL Editor**.
+
+![main screen](images/sql_editor/main_screen.png) 
+
+Для того, чтобы исполнить нижеописанный SQL код, необходимо скопировать его и нажать на кнопку **Run CTRL**.
+
+![run focused](images/sql_editor/run-focused.png)
+
+---
+
+### Шаг 2: Создание типа `operation_type`
+
+Создание перечисляемого типа для обозначения операций.
+
+```sql
+CREATE TYPE operation_type AS ENUM (
+  'поступление',
+  'списание'
+);
+```
+
+---
+
+### Шаг 3: Создание типа `measurement_unit`
+
+Создание перечисляемого типа для единиц измерения.
+
+```sql
+CREATE TYPE measurement_unit AS ENUM (
+  'килограммы',
+  'штуки',
+  'литры',
+  'метры'
+);
+```
+
+---
+
+### Шаг 4: Создание таблицы `Product`
+
+Эта таблица содержит информацию о продуктах.
+
+```sql
+CREATE TABLE Product (
+    id BIGSERIAL PRIMARY KEY,
+    name VARCHAR NOT NULL,
+    description VARCHAR,
+    measurement_unit measurement_unit
+);
+```
+
+- **id**: Уникальный идентификатор продукта (Primary Key).
+- **name**: Название продукта.
+- **description**: Описание продукта (может быть NULL).
+- **measurement\_unit**: Единица измерения продукта.
+
+---
+
+### Шаг 5: Создание таблицы `ProductCost`
+
+Таблица для хранения стоимости продуктов на определённые даты.
+
+```sql
+CREATE TABLE ProductCost (
+    id BIGSERIAL PRIMARY KEY,
+    date TIMESTAMPTZ NOT NULL,
+    cost FLOAT8 NOT NULL,
+    product_id BIGINT NOT NULL REFERENCES Product(id)
+);
+```
+
+- **id**: Уникальный идентификатор стоимости (Primary Key).
+- **date**: Дата, когда была зафиксирована стоимость.
+- **cost**: Стоимость продукта.
+- **product\_id**: Внешний ключ, ссылающийся на `Product(id)`.
+
+---
+
+### Шаг 6: Создание таблицы `Employee`
+
+Таблица для хранения информации о сотрудниках.
+
+```sql
+CREATE TABLE Employee (
+    id BIGSERIAL PRIMARY KEY,
+    fullname VARCHAR NOT NULL,
+    is_manager BOOLEAN
+);
+```
+
+- **id**: Уникальный идентификатор сотрудника (Primary Key).
+- **fullname**: Полное имя сотрудника.
+- **is\_manager**: Флаг, указывающий, является ли сотрудник менеджером.
+
+---
+
+### Шаг 7: Создание таблицы `Storage`
+
+Таблица для хранения информации о складах.
+
+```sql
+CREATE TABLE Storage (
+    id BIGSERIAL PRIMARY KEY,
+    number INT NOT NULL
+);
+```
+
+- **id**: Уникальный идентификатор склада (Primary Key).
+- **number**: Номер склада.
+
+---
+
+### Шаг 8: Создание таблицы `Work`
+
+Таблица для учета работы сотрудников на складах.
+
+```sql
+CREATE TABLE Work (
+    storage_id BIGINT NOT NULL REFERENCES Storage(id),
+    employee_id BIGINT NOT NULL REFERENCES Employee(id),
+    date_start TIMESTAMP NOT NULL,
+    date_end TIMESTAMP,
+    wage_rate NUMERIC,
+    PRIMARY KEY (storage_id, employee_id)
+);
+```
+
+- **storage\_id**: Внешний ключ, ссылающийся на `Storage(id)`.
+- **employee\_id**: Внешний ключ, ссылающийся на `Employee(id)`.
+- **date\_start**: Дата начала работы.
+- **date\_end**: Дата окончания работы (может быть NULL).
+- **wage\_rate**: Ставка оплаты труда.
+
+---
+
+### Шаг 9: Создание таблицы `Operation`
+
+Таблица для хранения информации об операциях на складах.
+
+```sql
+CREATE TABLE Operation (
+    id BIGSERIAL PRIMARY KEY,
+    date TIMESTAMPTZ NOT NULL,
+    type operation_type NOT NULL,
+    storage_id BIGINT NOT NULL REFERENCES Storage(id),
+    employee_id BIGINT REFERENCES Employee(id)
+);
+```
+
+- **id**: Уникальный идентификатор операции (Primary Key).
+- **date**: Дата операции.
+- **type**: Тип операции.
+- **storage\_id**: Внешний ключ, ссылающийся на `Storage(id)`.
+- **employee\_id**: Внешний ключ, ссылающийся на `Employee(id)` (может быть NULL).
+
+---
+
+### Шаг 10: Создание таблицы `ProductOperation`
+
+Таблица для учета операций с продуктами.
+
+```sql
+CREATE TABLE ProductOperation (
+    id BIGSERIAL PRIMARY KEY,
+    count INT NOT NULL,
+    product_id BIGINT NOT NULL REFERENCES Product(id),
+    operation_id BIGINT NOT NULL REFERENCES Operation(id)
+);
+```
+
+- **id**: Уникальный идентификатор (Primary Key).
+- **count**: Количество продукта, связанное с операцией.
+- **product\_id**: Внешний ключ, ссылающийся на `Product(id)`.
+- **operation\_id**: Внешний ключ, ссылающийся на `Operation(id)`.
 
 ---
 
