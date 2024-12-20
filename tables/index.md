@@ -312,7 +312,7 @@ CREATE TABLE ProductCost (
     id BIGSERIAL PRIMARY KEY,
     date TIMESTAMPTZ NOT NULL,
     cost FLOAT8 NOT NULL,
-    product_id BIGINT NOT NULL REFERENCES Product(id)
+    product_id BIGINT NOT NULL REFERENCES Product(id) ON UPDATE CASCADE ON DELETE RESTRICT
 );
 ```
 
@@ -363,8 +363,8 @@ CREATE TABLE Storage (
 
 ```sql
 CREATE TABLE Work (
-    storage_id BIGINT NOT NULL REFERENCES Storage(id),
-    employee_id BIGINT NOT NULL REFERENCES Employee(id),
+    storage_id BIGINT NOT NULL REFERENCES Storage(id) ON UPDATE CASCADE ON DELETE RESTRICT,
+    employee_id BIGINT NOT NULL REFERENCES Employee(id) ON UPDATE CASCADE ON DELETE RESTRICT,
     date_start TIMESTAMP NOT NULL,
     date_end TIMESTAMP,
     wage_rate NUMERIC,
@@ -389,8 +389,8 @@ CREATE TABLE Operation (
     id BIGSERIAL PRIMARY KEY,
     date TIMESTAMPTZ NOT NULL,
     type operation_type NOT NULL,
-    storage_id BIGINT NOT NULL REFERENCES Storage(id),
-    employee_id BIGINT REFERENCES Employee(id)
+    storage_id BIGINT NOT NULL REFERENCES Storage(id) ON UPDATE CASCADE ON DELETE RESTRICT,
+    employee_id BIGINT REFERENCES Employee(id) ON UPDATE CASCADE ON DELETE RESTRICT
 );
 ```
 
@@ -410,8 +410,8 @@ CREATE TABLE Operation (
 CREATE TABLE ProductOperation (
     id BIGSERIAL PRIMARY KEY,
     count INT NOT NULL,
-    product_id BIGINT NOT NULL REFERENCES Product(id),
-    operation_id BIGINT NOT NULL REFERENCES Operation(id)
+    product_id BIGINT NOT NULL REFERENCES Product(id) ON UPDATE CASCADE ON DELETE CASCADE,
+    operation_id BIGINT NOT NULL REFERENCES Operation(id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 ```
 
