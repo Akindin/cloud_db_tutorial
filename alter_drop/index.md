@@ -11,7 +11,7 @@
 Пример: Добавим столбцы `address` и `phone` в таблицу `Storage`.
 
 ```sql
-ALTER TABLE Storage
+ALTER TABLE "Storage"
 ADD COLUMN address VARCHAR(255),
 ADD COLUMN phone VARCHAR(20);
 ```
@@ -19,7 +19,7 @@ ADD COLUMN phone VARCHAR(20);
 Добавим уникальный СНИЛС для сотрудников в таблицу `Employee`:
 
 ```sql
-ALTER TABLE Employee
+ALTER TABLE "Employee"
 ADD COLUMN snils VARCHAR(11) UNIQUE;
 ```
 
@@ -33,42 +33,42 @@ ADD COLUMN snils VARCHAR(11) UNIQUE;
 
 ```sql
 -- Удаляем старый внешний ключ для product_id в таблице ProductCost
-ALTER TABLE ProductCost
-DROP CONSTRAINT productcost_product_id_fkey;
+ALTER TABLE "ProductCost"
+DROP CONSTRAINT "ProductCost_product_id_fkey";
 
 -- Добавляем новый внешний ключ с действиями ON UPDATE CASCADE и ON DELETE RESTRICT
-ALTER TABLE ProductCost
-ADD CONSTRAINT productcost_product_id_fkey
+ALTER TABLE "ProductCost"
+ADD CONSTRAINT "ProductCost_product_id_fkey"
 FOREIGN KEY (product_id)
-REFERENCES Product(id)
+REFERENCES "Product"(id)
 ON UPDATE CASCADE
 ON DELETE RESTRICT;
 
 -- Удаляем старые внешние ключи для таблицы ProductOperation
-ALTER TABLE ProductOperation
-DROP CONSTRAINT productoperation_product_id_fkey;
-DROP CONSTRAINT productoperation_operation_id_fkey;
+ALTER TABLE "ProductOperation"
+DROP CONSTRAINT "productoperation_product_id_fkey",
+DROP CONSTRAINT "productoperation_operation_id_fkey";
 
 -- Добавляем новые внешние ключи для product_id с ON UPDATE CASCADE и ON DELETE CASCADE
-ALTER TABLE ProductOperation
-ADD CONSTRAINT productoperation_product_id_fkey
+ALTER TABLE "ProductOperation"
+ADD CONSTRAINT "productoperation_product_id_fkey"
 FOREIGN KEY (product_id)
-REFERENCES Product(id)
+REFERENCES "Product"(id)
 ON UPDATE CASCADE
 ON DELETE CASCADE;
 
 -- Добавляем новые внешние ключи для operation_id с ON UPDATE CASCADE и ON DELETE CASCADE
-ALTER TABLE ProductOperation
-ADD CONSTRAINT productoperation_operation_id_fkey
+ALTER TABLE "ProductOperation"
+ADD CONSTRAINT "productoperation_operation_id_fkey"
 FOREIGN KEY (operation_id)
-REFERENCES Operation(id)
+REFERENCES "Operation"(id)
 ON UPDATE CASCADE
 ON DELETE CASCADE;
 
--- Удаляем старые внешние ключи в таблице Operation
-ALTER TABLE Operation
-DROP CONSTRAINT operation_storage_id_fkey;
-DROP CONSTRAINT operation_employee_id_fkey;
+-- Удаляем старые внешние ключи в таблице Operation // не выполнено
+ALTER TABLE "Operation"
+DROP CONSTRAINT "Operation_storage_id_fkey";
+DROP CONSTRAINT "Operation_employee_id_fkey";
 
 -- Добавляем новые внешние ключи с ON UPDATE CASCADE и ON DELETE RESTRICT
 ALTER TABLE Operation
