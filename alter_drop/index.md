@@ -65,43 +65,45 @@ REFERENCES "Operation"(id)
 ON UPDATE CASCADE
 ON DELETE CASCADE;
 
--- Удаляем старые внешние ключи в таблице Operation // не выполнено
+-- Удаляем старые внешние ключи в таблице Operation
 ALTER TABLE "Operation"
 DROP CONSTRAINT "Operation_storage_id_fkey";
+ALTER TABLE "Operation"
 DROP CONSTRAINT "Operation_employee_id_fkey";
 
 -- Добавляем новые внешние ключи с ON UPDATE CASCADE и ON DELETE RESTRICT
-ALTER TABLE Operation
-ADD CONSTRAINT operation_storage_id_fkey
+ALTER TABLE "Operation"
+ADD CONSTRAINT "operation_storage_id_fkey"
 FOREIGN KEY (storage_id)
-REFERENCES Storage(id)
+REFERENCES "Storage"(id)
 ON UPDATE CASCADE
 ON DELETE RESTRICT;
 
-ALTER TABLE Operation
-ADD CONSTRAINT operation_employee_id_fkey
+ALTER TABLE "Operation"
+ADD CONSTRAINT "operation_employee_id_fkey"
 FOREIGN KEY (employee_id)
-REFERENCES Employee(id)
+REFERENCES "Employee"(id)
 ON UPDATE CASCADE
 ON DELETE RESTRICT;
 
 -- Удаляем старые внешние ключи в таблице Work
-ALTER TABLE Work
-DROP CONSTRAINT work_storage_id_fkey;
-DROP CONSTRAINT work_employee_id_fkey;
+ALTER TABLE "Work"
+DROP CONSTRAINT "Work_storage_id_fkey";
+ALTER TABLE "Work"
+DROP CONSTRAINT "Work_employee_id_fkey";
 
 -- Добавляем новые внешние ключи с ON UPDATE CASCADE и ON DELETE RESTRICT
-ALTER TABLE Work
-ADD CONSTRAINT work_storage_id_fkey
+ALTER TABLE "Work"
+ADD CONSTRAINT "work_storage_id_fkey"
 FOREIGN KEY (storage_id)
-REFERENCES Storage(id)
+REFERENCES "Storage"(id)
 ON UPDATE RESTRICT
 ON DELETE RESTRICT;
 
-ALTER TABLE Work
-ADD CONSTRAINT work_employee_id_fkey
+ALTER TABLE "Work"
+ADD CONSTRAINT "work_employee_id_fkey"
 FOREIGN KEY (employee_id)
-REFERENCES Employee(id)
+REFERENCES "Employee"(id)
 ON UPDATE CASCADE
 ON DELETE RESTRICT;
 ```
