@@ -2,6 +2,8 @@
 
 В этом руководстве рассмотрим примеры сложных SQL-запросов, которые выполняют объединение данных, использование подзапросов, агрегацию и рекурсию.
 
+*В конце руководства представлен код заполнения таблиц для гарантированного выполнения запросов.*
+
 ---
 
 ## 1. Соединение двух таблиц с помощью JOIN
@@ -14,6 +16,10 @@ FROM Product
 JOIN ProductCost ON Product.id = ProductCost.product_id;
 ```
 
+**Выполнение запроса:**
+
+![alt text](image.png)
+
 ---
 
 ## 2. Соединение двух таблиц с помощью WHERE
@@ -25,6 +31,10 @@ SELECT Product.name, ProductCost.cost
 FROM Product, ProductCost
 WHERE Product.id = ProductCost.product_id;
 ```
+
+**Выполнение запроса:**
+
+![alt text](image-1.png)
 
 ---
 
@@ -40,6 +50,10 @@ JOIN Operation ON ProductOperation.operation_id = Operation.id
 JOIN Storage ON Operation.storage_id = Storage.id;
 ```
 
+**Выполнение запроса:**
+
+![alt text](image-2.png)
+
 ---
 
 ## 4. Соединение более чем двух таблиц с помощью WHERE
@@ -53,6 +67,10 @@ WHERE Product.id = ProductOperation.product_id
   AND ProductOperation.operation_id = Operation.id
   AND Operation.storage_id = Storage.id;
 ```
+
+**Выполнение запроса:**
+
+![alt text](image-3.png)
 
 ---
 
@@ -75,6 +93,10 @@ WITH RECURSIVE EmployeeHierarchy AS (
 SELECT * FROM EmployeeHierarchy;
 ```
 
+**Выполнение запроса:**
+
+![alt text](image-4.png)
+
 ---
 
 ## 6. Подзапрос, возвращающий единственное значение
@@ -87,6 +109,10 @@ FROM Product
 WHERE id = (SELECT product_id FROM ProductCost ORDER BY cost DESC LIMIT 1);
 ```
 
+**Выполнение запроса:**
+
+![alt text](image-5.png)
+
 ---
 
 ## 7. Подзапрос, возвращающий множественные значения
@@ -98,6 +124,10 @@ SELECT name
 FROM Product
 WHERE id IN (SELECT product_id FROM ProductCost);
 ```
+
+**Выполнение запроса:**
+
+![alt text](image-6.png)
 
 ---
 
@@ -115,6 +145,10 @@ WHERE id IN (
 );
 ```
 
+**Выполнение запроса:**
+
+![alt text](image-7.png)
+
 ---
 
 ## 9. Использование GROUP BY и HAVING для нескольких источников данных
@@ -130,6 +164,10 @@ GROUP BY Storage.address
 HAVING SUM(ProductOperation.count) > 100;
 ```
 
+**Выполнение запроса:**
+
+![alt text](image-8.png)
+
 ---
 
 ## 10. Подзапрос с вычислением
@@ -142,9 +180,12 @@ FROM Product
 WHERE id IN (SELECT product_id FROM ProductCost);
 ```
 
+**Выполнение запроса:**
+
+![alt text](image-9.png)
+
 ---
 
 ## Заключение
 
 Теперь вы знаете, как выполнять сложные запросы в PostgreSQL. Эти примеры помогут вам анализировать данные из нескольких таблиц, использовать подзапросы и выполнять вычисления для получения нужной информации.
-
